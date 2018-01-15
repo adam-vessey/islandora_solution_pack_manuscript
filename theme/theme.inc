@@ -24,6 +24,10 @@ function template_preprocess_islandora_manuscript_manuscript(array &$variables) 
   $viewer = islandora_get_viewer($params, 'islandora_manuscript_viewers');
   if ($viewer) {
     $variables['viewer'] = $viewer;
+    if (islandora_get_viewer_id('islandora_manuscript_viewers') == '') {
+      // XXX: Add in our IA class if applicable.
+      $variables['viewer_wrapper_attributes']['class'][] = 'ia-bookreader';
+    }
   }
   $variables['islandora_manuscript_metadata'] = variable_get('islandora_manuscript_metadata_display', FALSE);
   if ($variables['islandora_manuscript_metadata']) {
