@@ -24,7 +24,7 @@ function template_preprocess_islandora_manuscript_manuscript(array &$variables) 
   $viewer = islandora_get_viewer($params, 'islandora_manuscript_viewers');
   if ($viewer) {
     $variables['viewer'] = $viewer;
-    if (islandora_get_viewer_id('islandora_manuscript_viewers') == '') {
+    if (islandora_get_viewer_id('islandora_manuscript_viewers') == 'islandora_internet_archive_bookreader') {
       // XXX: Add in our IA class if applicable.
       $variables['viewer_wrapper_attributes']['class'][] = 'ia-bookreader';
     }
